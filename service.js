@@ -17,7 +17,6 @@ const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
 const BRIDGE_CA = '0xB74D5Dba3081bCaDb5D4e1CC77Cc4807E1c4ecf8';
 const solc = require("solc");
 const path = require("path");
-const fs = require('fs');
 
 function appendLog(message) {
   fs.appendFileSync('log.txt', message + '\n');
