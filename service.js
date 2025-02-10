@@ -32,9 +32,10 @@ async function dailyTransaction(privateKey) {
         const signedTx = await wallet.sendTransaction(tx);
         const receipt = await signedTx.wait(1);
         console.log(kleur.green(`[${timelog()}] Transaction Confirmed: ${explorer.tx(receipt.hash)}`));
-		appendLog(`[${timelog()}] Transaction Confirmed: ${explorer.tx(receipt.hash)}`);
+	appendLog(`[${timelog()}] Transaction Confirmed: ${explorer.tx(receipt.hash)}`);
     } catch (error) {
         console.error("Error:", error);
+	appendLog("Error:", error);
     }
 }
 async function bridgeTransaction(privateKey) {
@@ -52,9 +53,10 @@ async function bridgeTransaction(privateKey) {
         const signedTx = await wallet.sendTransaction(tx);
         const receipt = await signedTx.wait(1);
         console.log(kleur.green(`[${timelog()}] Transaction Confirmed: ${explorerSepolia.tx(receipt.hash)}`));
-		appendLog(`[${timelog()}] Transaction Confirmed: ${explorerSepolia.tx(receipt.hash)}`);
+	appendLog(`[${timelog()}] Transaction Confirmed: ${explorerSepolia.tx(receipt.hash)}`);
     } catch (error) {
         console.error("Error:", error);
+	appendLog("Error:", error);
     }
 }
 
@@ -79,7 +81,7 @@ async function performCheckin(privateKey) {
 	);
 
     console.log(kleur.green(`[${timelog()}] Checkin Task successful for ${address}`));
-	appendLog(`[${timelog()}] Checkin Task successful for ${address}`);
+    appendLog(`[${timelog()}] Checkin Task successful for ${address}`);
     return {
       reddioCheckin: reddioCheckin.data,
     };
@@ -122,6 +124,7 @@ async function transferTask(privateKey) {
       kleur.yellow(`[${timelog()}] Transfer Task failed for ${address || 'unknown address'}: `),
       error.message
     );
+    appendLog(`[${timelog()}] Transfer Task failed for ${address || 'unknown address'}: `, error.message);
 	return;
     throw error;
   }
@@ -152,11 +155,9 @@ async function bridgeTask(privateKey) {
       reddioBridgeTask: reddioBridgeTask.data,
     };
   } catch (error) {
-    console.error(
-      kleur.yellow(`[${timelog()}] Bridge Task failed for ${address || 'unknown address'}: `),
-      error.message
-    );
-	return;
+    console.error(kleur.yellow(`[${timelog()}] Bridge Task failed for ${address || 'unknown address'}: `), error.message);
+    appendLog(`[${timelog()}] Bridge Task failed for ${address || 'unknown address'}: `, error.message);
+    return;
     throw error;
   }
 }
