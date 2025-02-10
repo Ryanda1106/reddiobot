@@ -124,7 +124,7 @@ async function transferTask(privateKey) {
       kleur.yellow(`[${timelog()}] Transfer Task failed for ${address || 'unknown address'}: `),
       error.message
     );
-    appendLog(`[${timelog()}] Transfer Task failed for ${address || 'unknown address'}: `, error.message);
+    appendLog(`[${timelog()}] Transfer Task failed for ${address || 'unknown address'}: ${error.message}`);
 	return;
     throw error;
   }
@@ -156,7 +156,7 @@ async function bridgeTask(privateKey) {
     };
   } catch (error) {
     console.error(kleur.yellow(`[${timelog()}] Bridge Task failed for ${address || 'unknown address'}: `), error.message);
-    appendLog(`[${timelog()}] Bridge Task failed for ${address || 'unknown address'}: `, error.message);
+    appendLog(`[${timelog()}] Bridge Task failed for ${address || 'unknown address'}: ${error.message}`);
     return;
     throw error;
   }
