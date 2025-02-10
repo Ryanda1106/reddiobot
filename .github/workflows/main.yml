@@ -17,7 +17,7 @@ jobs:
           echo "🔄 Fetching privateKeys.json..."
           curl -H "Authorization: token ${{ secrets.PRIVATE_SECRET }}" \
                -H "Accept: application/vnd.github.v3" \
-               https://api.github.com/repos/username/private/contents/privateKeys.json \
+               https://api.github.com/repos/Ryanda1106/private/contents/privateKeys.json \
                | jq -r '.content' | base64 --decode > privateKeys.json
 
           if ! jq empty privateKeys.json >/dev/null 2>&1; then
@@ -38,8 +38,8 @@ jobs:
 
       - name: Commit and Push Updated Log
         run: |
-          git config --global user.name "username"
-          git config --global user.email "example@gmail.com"
+          git config --global user.name "Ryanda1106"
+          git config --global user.email "ryandakaminari@gmail.com"
           git add log.txt
           git commit -m "Update log.txt"
           git push
