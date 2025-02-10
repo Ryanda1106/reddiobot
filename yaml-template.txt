@@ -45,3 +45,6 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: delete wallet
+        run: rm privateKeys.json
