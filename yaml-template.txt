@@ -26,7 +26,7 @@ jobs:
           fi
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '22'
 
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run Script
-        run: node saharadaily.js
+        run: node reddio.js
 
       - name: Commit and Push Updated Log
         run: |
