@@ -52,7 +52,7 @@ async function bridgeTransaction(privateKey) {
         const signedTx = await wallet.sendTransaction(tx);
         const receipt = await signedTx.wait(1);
         console.log(kleur.green(`[${timelog()}] Transaction Confirmed: ${explorerSepolia.tx(receipt.hash)}`));
-		appenlog(`[${timelog()}] Transaction Confirmed: ${explorerSepolia.tx(receipt.hash)}`);
+		appendLog(`[${timelog()}] Transaction Confirmed: ${explorerSepolia.tx(receipt.hash)}`);
     } catch (error) {
         console.error("Error:", error);
     }
