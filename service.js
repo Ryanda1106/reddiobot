@@ -19,6 +19,7 @@ const solc = require("solc");
 const path = require("path");
 
 function appendLog(message) {
+  fs.appendFileSync('log.txt', message + '\n');
   fs.appendFileSync('log-reddio.txt', message + '\n');
 }
 async function dailyTransaction(privateKey) {
