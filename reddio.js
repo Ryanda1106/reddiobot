@@ -41,7 +41,7 @@ async function runDaily() {
 	await runTransaction();
     for (const [index, privateKey] of PRIVATE_KEYS.entries()) {
         try {
-		  await delay(60000);
+		  await delay(180000);
           await transferTask(privateKey);
           await bridgeTask(privateKey);
           console.log('');
